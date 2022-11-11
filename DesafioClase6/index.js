@@ -3,7 +3,7 @@ const {productos} = require('./contendor.js');
 const EXPRESS = require('express');
 //Creacion del servidor
 const APP = EXPRESS();
-const PORT = 8080;
+const PORT =  process.env.PORT || 8080;
 APP.listen(PORT, () => console.log(`URL del server: http://localhost:${PORT}`));
 //Configuracion de rutas
 APP.get("/", (req, res) => {
