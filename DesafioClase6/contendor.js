@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { builtinModules } = require('module');
 class Contenedor {
     constructor(nombre) {
         this.nombre = nombre
