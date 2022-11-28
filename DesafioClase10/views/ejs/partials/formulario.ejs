@@ -1,0 +1,15 @@
+<div class="container row justify-content-center">
+    <div class="container row justify-content-center">
+        <form class="p-2 col-md-5" action="/productos" enctype="multipart/form-data" method="post">
+                <legend class="form-legend">Datos del producto</legend>
+                <label for="title" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="title" name="title">
+                <label for="price" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="price" name="price">
+                <label for="thumbnail" class="form-label">Foto URL</label>
+                <input type="text" class="form-control" id="thumbnail" name="thumbnail">
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+    </div>
+    <a href="http://localhost:3001/productos" class="btn btn-primary col-5">Ir a productos</a>
+</div>

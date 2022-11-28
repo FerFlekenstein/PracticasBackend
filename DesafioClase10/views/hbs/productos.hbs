@@ -1,0 +1,27 @@
+<div class="container row justify-content-center">
+  {{#if objetos}}
+    <table class="table table-dark table-hover col-10">
+      <thead>
+        <tr>
+          <th scope="col">Titulo</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Imagen</th>
+          <th scope="col">Id</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each objetos}}  
+            <tr>
+                <th scope="row">{{title}}</th>
+                <td>${{price}}</td>
+                <td>{{thumbnail}}</td>
+                <td>{{id}}</td>
+            </tr>
+          {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+      <h3 class="text-center alert alert-primary">No hay productos</h3>
+  {{/if}}
+  <a href="http://localhost:3001" class="btn btn-dark col-3 align-self-end">Ir al formulario</a>
+</div>

@@ -16,23 +16,5 @@
     "price": 18600,
     "thumbnail": "https://www.fullh4rd.com.ar/img/productos/Pics_Prod/hd-ssd-1tb-kingston-snvs-nv1-m2-nvme-0.jpg",
     "id": 3
-  },
-  {
-    "title": "probando formulario",
-    "price": "12",
-    "thumbnail": "una url xd",
-    "id": 4
-  },
-  {
-    "title": "Prueba1",
-    "price": "43",
-    "thumbnail": "a",
-    "id": 5
-  },
-  {
-    "title": "Prueba2",
-    "price": "43234",
-    "thumbnail": "asadad",
-    "id": 6
   }
 ]

@@ -8,21 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form class="p-2" action="/api/productos" enctype="multipart/form-data" method="post" id="formulario">
-        <div class="mb-3">
-          <label for="title" class="form-label">Titulo del producto</label>
-          <input type="text" class="form-control" id="title" required>
-        </div>
-        <div class="mb-3">
-          <label for="price" class="form-label">Precio</label>
-          <input type="text" class="form-control" name="price" id="price" required>
-        </div>
-        <div class="mb-3">
-            <label for="thumbnail" class="form-label">Thumbnail</label>
-            <input type="text" class="form-control" name="thumbnail" id="thumbnail" required>
-        </div>
+    <form class="p-2" action="/api/productos" enctype="multipart/form-data" method="post">
+      <fieldset>
+        <legend class="form-legend">Datos del producto</legend>
+        <p>Nombre: <input type="text" name="title"></p>
+        <p>Precio: <input type="text" name="price"></p>
+        <p>Foto URL: <input type="text" name="thumbnail"></p>
+        <p>Archivo: <input type="file" name="archivo"></p>
+      </fieldset>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-  <script src="./form.js"></script>
 </body>
 </html>

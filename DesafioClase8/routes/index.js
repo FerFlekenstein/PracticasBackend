@@ -1,6 +1,10 @@
 const { Router} = require("express");
 const { productos } = require('../contenedor.js')
+const multer = require('multer');
 const router = new Router();
+
+//multer middleware
+const multerUpload = multer();
 
 module.exports = app => {
     app.use("/api/productos", router);
@@ -26,7 +30,7 @@ module.exports = app => {
         
     });
 
-    router.post("/", async (req, res, next) => {
+    router.post("/",multerUpload.none(), async (req, res, next) => {
         try {
             await productos.save(req.body);
             res.send(JSON.stringify(req.body));

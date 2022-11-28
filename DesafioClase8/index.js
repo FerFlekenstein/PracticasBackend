@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = 8080;
 const svRoutes = require("./routes");
+
 app.use("/", express.static('public'));
 
 app.use(express.json());
