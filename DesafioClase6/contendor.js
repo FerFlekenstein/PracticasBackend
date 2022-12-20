@@ -8,6 +8,7 @@ class Contenedor {
         try {
             //revisa si el archivo existe en la carpeta
             const carpeta = await fs.promises.readdir('./', 'utf-8')
+            console.log(carpeta);
             if (carpeta.includes(`${this.nombre}`)) {
                 //lee y verifica si el archivo contiene informacion
                 const hayInfo = await fs.promises.readFile(`./${this.nombre}`, 'utf-8')
@@ -134,5 +135,6 @@ const obj3 = {
     price: 13990,
     thumbnail: "https://www.fullh4rd.com.ar/img/productos/Pics_Prod/teclado-hp-hyperx-alloy-origins-65-mecanico-4p5d6aa-0.jpg"
 }
-
+// productos.save(obj)
+productos.deleteById(1)
 module.exports = { productos }

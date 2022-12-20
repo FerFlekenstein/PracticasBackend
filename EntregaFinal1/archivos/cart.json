@@ -1,0 +1,24 @@
+[
+  {
+    "timestamp": 1671448345459,
+    "id": 1,
+    "productos": []
+  },
+  {
+    "timestamp": 1671448364376,
+    "id": 2,
+    "productos": []
+  },
+  {
+    "timestamp": 1671448376649,
+    "id": 3,
+    "productos": [
+      {
+        "title": "SSD 1TB KINGSTON SNVS NV1 M.2 NVME",
+        "price": 18600,
+        "thumbnail": "https://www.fullh4rd.com.ar/img/productos/Pics_Prod/hd-ssd-1tb-kingston-snvs-nv1-m2-nvme-0.jpg",
+        "id": 1
+      }
+    ]
+  }
+]
