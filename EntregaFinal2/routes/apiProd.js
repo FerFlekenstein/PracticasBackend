@@ -5,8 +5,10 @@ const router = new Router();
 const multerUpload = multer();
 const admin = false;
 router.get("/", async (req, res, next) => {
+    //await productos.conn();
     const totalProductos = await productos.getAll()
     res.send(JSON.stringify(totalProductos));
+    //await productos.disconn();
 });
 router.get("/:id", async (req, res, next) => {
     const { id } = req.params;
@@ -14,8 +16,10 @@ router.get("/:id", async (req, res, next) => {
     res.send(JSON.stringify(resultado));
 });
 router.post("/", multerUpload.none(), async (req, res, next) => {
+    //await productos.conn();
     const prodId = await productos.save(req.body);
     res.send(JSON.stringify(prodId));
+    //await productos.disconn();
 });
 router.put("/:id", async (req, res, next) => {
     if (admin) {

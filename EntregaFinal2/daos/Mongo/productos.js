@@ -1,4 +1,5 @@
 import prodModel from "../../models/prodModel.js";
+//Usaba extends Database para obtener los metodos en las clases ProductosM y tambien lo hacia en CarritoM
 class ProductosM{
 
     async save(obj) {
