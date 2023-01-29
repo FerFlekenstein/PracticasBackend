@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { stringConn } from "./stringconn";
+import { stringConn } from "./stringConnect";
 //true --> MongoDB  false --> FileSystem
 const PERSISTENCIA = true;
 if(PERSISTENCIA){

@@ -1,1 +1,0 @@
-export const stringConn = 'mongodb+srv://dbEcomm:35470482@clusterfer.vszgiqb.mongodb.net/?retryWrites=true&w=majority';
