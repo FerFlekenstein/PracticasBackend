@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
-import { stringConn } from "./stringConnect";
 //true --> MongoDB  false --> FileSystem
 const PERSISTENCIA = true;
 if(PERSISTENCIA){
-    mongoose.connect(stringConn,{serverSelectionTimeoutMS: 5000}, (error) => {
+    mongoose.connect('mongodb+srv://dbEcomm:35470482@clusterfer.vszgiqb.mongodb.net/?retryWrites=true&w=majority',{serverSelectionTimeoutMS: 5000}, (error) => {
         if(error) console.log(error);
         else console.log("Conectado a MongoDB Atlas");
     })
