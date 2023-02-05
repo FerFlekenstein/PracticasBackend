@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Tabla from '../components/Tabla';
 import FormEmail from '../components/FormEmail';
 
-//con io conecto al servidor del backend y me devuelve un objeto (socket) 
-const socket = io('http://localhost:4000');
+//con io conecto al servidor del backend (lo paso sin uri porque se conecta directamente al ser todo una sola app) y me devuelve un objeto (socket) 
+const socket = io();
 
 function App() {
   //state para guardar el mensaje
