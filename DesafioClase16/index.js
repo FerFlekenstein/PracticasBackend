@@ -43,7 +43,7 @@ const server = http.createServer(app);
 //recibe un servidor http como parametro y configuro cors universalmente
 const io = new IOServer(server, {
     cors: {
-        origin: "*"
+        // origin: "*"
     }
 });
 app.use(cors());
