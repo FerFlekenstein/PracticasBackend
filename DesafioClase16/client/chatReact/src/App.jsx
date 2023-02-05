@@ -7,7 +7,7 @@ import Tabla from '../components/Tabla';
 import FormEmail from '../components/FormEmail';
 
 //con io conecto al servidor del backend (lo paso sin uri porque se conecta directamente al ser todo una sola app) y me devuelve un objeto (socket) 
-const socket = io();
+const socket = io("http://localhost:4000");
 
 function App() {
   //state para guardar el mensaje
