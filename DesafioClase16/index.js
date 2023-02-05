@@ -49,7 +49,7 @@ const io = new IOServer(server, {
 app.use(cors());
 //obtengo la ruta absoluta de donde se ejecute dirname (en este caso index.js) y la concateno hacia la carpeta build (front)
 const dirname = dirname(fileURLToPath(import.meta.url));
-app.use(express.static(join(dirname, "/client/chatReact/dist")));
+app.use(express.static(join(dirname, "/client/dist")));
 //escucha la conexion del cliente
 io.on('connection', async (socket) => {
     //escucha el evento "mensaje" del cliente(socket)
