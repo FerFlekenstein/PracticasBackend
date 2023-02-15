@@ -6,6 +6,9 @@ import {Server as IOServer} from "socket.io";
 import { generateProd, CURRENT_DIR } from "./utils.js";
 import { msj, productos, user } from "./daos/index.js";
 import { normalize, schema } from "normalizr";
+import session from 'express-session';
+import MongoStore from "connect-mongo";
+import loginRouter from "./routes/loginViewRouter.js"
 const PORT = 8080;
 const app = express();
 //server socket.io
@@ -17,12 +20,25 @@ app.use(express.urlencoded({extended: true}));
 //motores de plantillas
 app.set('view engine', 'ejs');
 app.set('views', `${CURRENT_DIR}/views`);
+app.use(express.static(`${CURRENT_DIR}/public`))
+//cookies
+app.use(session({
+    store: MongoStore.create({
+        mongoUrl: 'mongodb+srv://dbEcomm:35470482@clusterfer.vszgiqb.mongodb.net/?retryWrites=true&w=majority',
+        ttl: 60
+    }),
+    secret: "FraseSecreta",
+    resave: false,
+    saveUninitialized: false
+}))
 //rutas
 app.use("/api/productos", productosApi);
 app.use("/api/carrito", carritoApi);
-app.get("/", async (req, res, next) => {
+app.use("/", loginRouter)
+//rutas desafio 22
+app.get("/ejs", async (req, res) => {
     const arrProd = await productos.getAll();
-    res.render("productos", { objetos: arrProd })
+    res.render("productos", { objetos: arrProd, user: req.session.user})
 });
 app.get("/api/productos-test", (req, res, next) => {
     let productos = []
@@ -66,9 +82,6 @@ app.get("/api/mensajes", async (req, res, next) => {
     console.log(normalizedMsj);
     res.send(JSON.stringify(normalizedMsj, null, 2));
 })
-app.get("/", (req, res, next) => {
-    res.send("rutas /api/productos  ,  /api/carrito   ,  /api/productos-test   y   /api/mensajes")
-});
 //eventos socket
 io.on('connection', async (socket) => {
     const historialProd = await productos.getAll()
