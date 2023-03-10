@@ -1,0 +1,10 @@
+2023/03/09 16:41:44 [error] 12484#10880: *1 CreateFile() "C:\Users\fer\Desktop\nginx-1.23.3/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2023/03/09 19:32:50 [emerg] 15412#15032: invalid number of arguments in "root" directive in C:\Users\fer\Desktop\nginx-1.23.3/conf/nginx.conf:19
+2023/03/09 19:33:22 [emerg] 12180#16252: invalid number of arguments in "root" directive in C:\Users\fer\Desktop\nginx-1.23.3/conf/nginx.conf:19
+2023/03/09 19:33:41 [emerg] 2332#12112: invalid number of arguments in "root" directive in C:\Users\fer\Desktop\nginx-1.23.3/conf/nginx.conf:19
+2023/03/09 19:37:25 [emerg] 6440#12416: invalid number of arguments in "root" directive in C:\Users\fer\Desktop\nginx-1.23.3/conf/nginx.conf:19
+2023/03/09 19:38:07 [emerg] 11196#5288: invalid number of arguments in "root" directive in C:\Users\fer\Desktop\nginx-1.23.3/conf/nginx.conf:19
+2023/03/09 19:41:40 [emerg] 12980#11460: invalid number of arguments in "root" directive in C:\Users\fer\Desktop\nginx-1.23.3/conf/nginx.conf:19
+2023/03/09 20:15:44 [emerg] 16176#14924: invalid number of arguments in "root" directive in C:\Users\fer\Desktop\nginx-1.23.3/conf/nginx.conf:19
+2023/03/09 20:34:38 [error] 12484#10880: *3 CreateFile() "C:\Users\fer\Desktop\nginx-1.23.3/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "127.0.0.1", referrer: "http://127.0.0.1/"
+2023/03/09 20:42:34 [emerg] 11672#10528: invalid number of arguments in "root" directive in C:\Users\fer\Desktop\nginx-1.23.3/conf/nginx.conf:19
