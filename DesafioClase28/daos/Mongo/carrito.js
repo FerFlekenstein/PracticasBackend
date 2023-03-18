@@ -1,5 +1,6 @@
 import cartModel from "../../models/carritoModel.js";
 import prodModel from "../../models/prodModel.js";
+import { logger } from "../../middlewares/logger.js";
 class CarritoM {
 
     async createCart(){
@@ -8,6 +9,7 @@ class CarritoM {
             await cartModel.create(cart);
             return await cartModel.find(cart)._id
         } catch (error) {
+            logger.error(`error en createCart: ${error}`)
             return error
         }
     }
@@ -15,7 +17,7 @@ class CarritoM {
         try {
             await cartModel.findByIdAndDelete({_id: id})
         } catch (error) {
-           console.log(error); 
+            logger.error(`error en deleteById: ${error}`)
         }
     }
     async getProductos(idCart){
@@ -23,6 +25,7 @@ class CarritoM {
             const cart = await cartModel.findById({_id: idCart});
             return cart.productos;
         } catch (error) {
+            logger.error(`error en getProductos: ${error}`)
             return error
         } 
     }
@@ -34,7 +37,7 @@ class CarritoM {
             hayItem? console.log("Ya existe ese producto en el carrito") : cart.productos.push(prod);
             await cartModel.updateOne({_id : idCart}, {productos: cart.productos});
         } catch (error) {
-            console.log(error);
+            logger.error(`error en saveProduct: ${error}`)
         }
     }
     async delProdById(idCart, idProduct){
@@ -50,7 +53,7 @@ class CarritoM {
                 console.log("No existe ese producto en el carrito");
             }
         } catch (error) {
-            console.log(error);
+            logger.error(`error en delProdById: ${error}`)
         }
     }
 }

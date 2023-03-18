@@ -1,5 +1,5 @@
 import userModel from "../../models/userModel.js";
-
+import { logger } from "../../middlewares/logger.js";
 class User{
     async save(user) {
         try {
@@ -7,21 +7,21 @@ class User{
             const userDB = await userModel.find(user);
             return userDB
         } catch (error) {
-            return console.log(`Error en User.save ${error}`);
+            logger.warn(`Error en User.save ${error}`);
         }
     }
     async getBy(params){
         try {
             return await userModel.findOne(params)
         } catch (error) {
-            console.log(error);
+            logger.warn(`Error en User.getBy ${error}`);
         }
     }
     async getAll(){
         try {
             return await userModel.find({});
         } catch (error) {
-            return error;
+            logger.warn(`Error en User.getAll ${error}`);
         }
     }
 }

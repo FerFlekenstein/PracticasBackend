@@ -3,7 +3,7 @@ import passport from "passport";
 import { userService } from "../daos/index.js";
 import { createHash } from "../utils.js";
 import { fork } from 'child_process';
-
+import { logger } from "../middlewares/logger.js";
 const router = Router();
 //views 
 router.get('/register', (req, res) => {
@@ -52,7 +52,7 @@ router.get('/logout', (req,res)=>{
             res.redirect('/')
         }, 2000)
     } catch (error) {
-        console.log(error)
+        logger.warn(`error en ${req.url} info del error: ${error}`)
     }
 })
 router.get("/fail", (req, res) => {

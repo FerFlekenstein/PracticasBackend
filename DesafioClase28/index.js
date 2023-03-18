@@ -11,6 +11,8 @@ import loginRouter from "./routes/loginViewRouter.js"
 import passport from "passport";
 import initializeStrategy from "./config/passport.config.js";
 import config from "./config/config.js";
+import { logger } from "./middlewares/logger.js";
+import compression from "express-compression"
 //cambiar PORT
 const PORT = 8080;
 const app = express();
@@ -32,6 +34,7 @@ initializeStrategy();
 app.use(passport.initialize());
 app.use(passport.session());
 //middlewares
+// app.use(compression())
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 //motores de plantillas
@@ -39,7 +42,7 @@ app.set('view engine', 'ejs');
 app.set('views', `${CURRENT_DIR}/views`);
 app.use(express.static(`${CURRENT_DIR}/public`))
 //rutas
-app.use("/info", (req, res) => {
+app.use("/info",compression(), (req, res) => {
     const info = {
         cwd: process.cwd(),
         node: process.version,
@@ -49,6 +52,7 @@ app.use("/info", (req, res) => {
         args: process.argv,
         path: process.env.path
     }
+    logger.info(`${req.method} en ${req.url} - ${new Date().toLocaleTimeString()}`)
     const infoParsed = JSON.stringify(info)
     res.send(infoParsed)
 })
