@@ -1,7 +1,7 @@
 import cartModel from "./models/carritoModel.js";
 import prodModel from "./models/prodModel.js";
 import { logger } from "../../middlewares/logger.js";
-class CarritoM {
+class CarritoDao {
 
     async createCart(email) {
         try {
@@ -57,4 +57,4 @@ class CarritoM {
         }
     }
 }
-export default CarritoM;
+export default CarritoDao;

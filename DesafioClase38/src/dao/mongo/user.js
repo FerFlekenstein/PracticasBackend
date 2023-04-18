@@ -1,6 +1,6 @@
 import userModel from "./models/userModel.js";
 import { logger } from "../../middlewares/logger.js";
-class User {
+class UserDao {
     async save(user) {
         try {
             await userModel.create(user);
@@ -25,5 +25,5 @@ class User {
         }
     }
 }
-const userService = new User();
+const userService = new UserDao();
 export default userService;

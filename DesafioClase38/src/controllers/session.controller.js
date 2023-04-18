@@ -1,9 +1,11 @@
 import jwt from "jsonwebtoken";
 import config from "../config/config.js";
+import UserDto from "../dao/DTO/userDTO.js";
 import userService from "../dao/mongo/user.js";
+import { transporter } from "../mods/mailing.js";
 import { createHash } from "../services/auth.js";
 import { logger } from "../middlewares/logger.js";
-import { transporter } from "../mods/mailing.js";
+const userDTO = new UserDto();
 const registro = async (req, res) => {
     const file = req.file;
     if (!file) return res.status(500).send({ status: "error", error: "Error al guardar el archivo" })
@@ -30,13 +32,7 @@ const registro = async (req, res) => {
 }
 const createToken = async (req, res) => {
     try {
-        const user = req.user
-        const userToken = {
-            id: user._id,
-            email: user.email,
-            nombre: user.nombre,
-            avatar: user.avatar
-        }
+        const userToken = userDTO.getUserToken(req.user)
         const token = jwt.sign(userToken, config.jwt.token, { expiresIn: "1d" })
         res.cookie(config.jwt.cookie, token, {maxAge: 86400000}).send({status:"success", message:"logged in"})
     } catch (error) {

@@ -1,6 +1,6 @@
 import prodModel from "./models/prodModel.js";
 import { logger } from "../../middlewares/logger.js";
-class ProductosM {
+class ProductosDao {
 
     async save(obj) {
         try {
@@ -48,4 +48,4 @@ class ProductosM {
         }
     }
 }
-export default ProductosM;
+export default ProductosDao;
